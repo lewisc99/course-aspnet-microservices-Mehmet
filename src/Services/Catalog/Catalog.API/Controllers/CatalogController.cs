@@ -55,6 +55,8 @@ namespace Catalog.API.Controllers
 
         }
 
+        //action is the name of the method in case [action] = GetProductByCategory, {category} you need to add the name.
+
         [Route("[action]/{category}", Name ="GetproductByCategory")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Product>),(int) HttpStatusCode.OK)]
