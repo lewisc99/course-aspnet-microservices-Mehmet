@@ -11,12 +11,12 @@ services:
         - mongo_data:/data/db
 
 
-catalog.api:
-    container_name: catalog.api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
-    depends_on:
-      - catalogdb
-    ports:
-      - "8000:80"
+  catalog.api:
+        container_name: catalog.api
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+          - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
+        depends_on:
+          - catalogdb
+        ports:
+          - "8000:80"
