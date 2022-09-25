@@ -10,6 +10,14 @@ services:
     volumes:
         - mongo_data:/data/db
 
+  basketdb:
+    container_name: basketdb
+    restart: always
+    ports:
+        - "6379:6379" #first is the container's port, second is the official port of redis.
+  #don't have volume to basketdb because they are distributor case,
+  #and willnot be saved from the docker volume
+
 
   catalog.api:
         container_name: catalog.api
