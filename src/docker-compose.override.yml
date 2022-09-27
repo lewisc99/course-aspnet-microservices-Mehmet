@@ -14,16 +14,22 @@ services:
     container_name: basketdb
     restart: always
     ports:
-        - "6379:6379" #first is the container's port, second is the official port of redis.
-  #don't have volume to basketdb because they are distributor case,
-  #and willnot be saved from the docker volume
-
+        - "6379:6379" 
+  portainer:
+    container_name: portainer
+    restart: always
+    ports:
+        - "8090:8000" 
+        - "9000:9000"
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data
 
   catalog.api:
         container_name: catalog.api
         environment:
           - ASPNETCORE_ENVIRONMENT=Development
-          - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
+          - "DatabaseScltings:ConnectionString=mongodb://catalogdb:27017"
         depends_on:
           - catalogdb
         ports:

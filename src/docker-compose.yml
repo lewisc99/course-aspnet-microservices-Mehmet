@@ -7,6 +7,9 @@ services:
   basketdb: 
     image: redis:alpine
 
+  portainer:
+    image: portainer/portainer-ce
+
   
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
@@ -21,6 +24,7 @@ services:
       dockerfile: Services/Basket/Basket.API/Dockerfile
 
 volumes:
-  mongo_data: #volumes are basically data storage
-              #that are outside of the containers and
-              #exist on the host file system
+  mongo_data: 
+  portainer_data:       
+
+    
