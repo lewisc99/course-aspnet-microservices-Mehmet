@@ -16,6 +16,7 @@ service DiscountProtoService
 }
 
 
+
 //like chspar class object
 message GetDiscountRequest {
 	string productName = 1; 
