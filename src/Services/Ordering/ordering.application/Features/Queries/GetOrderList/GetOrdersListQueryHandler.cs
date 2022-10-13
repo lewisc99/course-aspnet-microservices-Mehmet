@@ -31,7 +31,6 @@ namespace ordering.application.Features.Queries.GetOrderList
             return _mapper.Map<List<OrdersVm>>(orderList);
 
 
-
         }
     }
 }
