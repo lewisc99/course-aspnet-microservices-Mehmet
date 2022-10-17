@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EventBus.Messages.Events
 {
-    //same as Order.cs
+    //same property of Order.cs from Ordering.domain
    public class BasketCheckoutEvent : IntegrationBaseEvent
     {
 
