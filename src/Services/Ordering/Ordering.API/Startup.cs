@@ -1,3 +1,5 @@
+using EventBus.Messages.Common;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ordering.application;
 using ordering.infrastructure;
+using Ordering.API.EventBusConsumer;
 
 namespace Ordering.API
 {
@@ -26,11 +29,43 @@ namespace Ordering.API
             services.AddInfrastructureServices(Configuration);
 
 
+
+            //Mass transiet - RabbitMQ COnfiguration to connect wiht the host RabbitMQ
+
+            services.AddMassTransit(config =>
+            {
+
+                //class to consume from the queue the item published
+                config.AddConsumer<BasketCheckoutConsumer>(); 
+
+                config.UsingRabbitMq((context, configuration) =>
+                {
+
+                    //configure the host, properties from appsettings.json
+                    configuration.Host(Configuration["EventBusSettings:HostAddress"]);
+
+
+                    configuration.ReceiveEndpoint(EventBusContants.BasketCheckoutQueue, c =>
+                    {
+
+
+                        c.ConfigureConsumer<BasketCheckoutConsumer>(context);
+                    });
+                });
+            });
+                
+
+
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering.API", Version = "v1" });
             });
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
