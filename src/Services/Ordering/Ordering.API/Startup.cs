@@ -53,8 +53,12 @@ namespace Ordering.API
                     });
                 });
             });
-                
 
+
+            //General Configuration AutoMapper
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<BasketCheckoutConsumer>();
 
 
             services.AddControllers();
