@@ -93,6 +93,8 @@ namespace Basket.API.Controllers
             var basket = await _repository.GetBasket(basketCheckout.UserName);
             if (basket == null)
             {
+
+
                 return BadRequest();
             }
 
