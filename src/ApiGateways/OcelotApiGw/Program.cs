@@ -18,7 +18,7 @@ namespace OcelotApiGw
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     //will return the json file that has the correct environment. 
-                    config.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}json",true,true);
+                    config.AddJsonFile($"ocelot.{hostingContext.HostingEnvironment.EnvironmentName}.json",true,true);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
