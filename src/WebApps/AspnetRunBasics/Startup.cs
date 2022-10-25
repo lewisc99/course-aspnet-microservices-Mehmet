@@ -25,19 +25,19 @@ namespace AspnetRunBasics
             services.AddHttpClient<ICatalogService, CatalogService>(
              c =>
              {
-                 c.BaseAddress = new System.Uri(Configuration["ApiSettings:CatalogUrl"]);
+                 c.BaseAddress = new System.Uri(Configuration["ApiSettings:GatewayAddress"]);
              });
 
             services.AddHttpClient<IBasketService, BasketService>(
               c =>
               {
-                  c.BaseAddress = new System.Uri(Configuration["ApiSettings:BasketUrl"]);
+                  c.BaseAddress = new System.Uri(Configuration["ApiSettings:GatewayAddress"]);
               });
 
             services.AddHttpClient<IOrderService, OrderService>(
              c =>
              {
-                 c.BaseAddress = new System.Uri(Configuration["ApiSettings:OrderingUrl"]);
+                 c.BaseAddress = new System.Uri(Configuration["ApiSettings:GatewayAddress"]);
              });
 
 

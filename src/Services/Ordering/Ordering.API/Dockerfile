@@ -8,8 +8,8 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Services/Ordering/Ordering.API/Ordering.API.csproj", "Services/Ordering/Ordering.API/"]
 COPY ["Services/Ordering/ordering.application/ordering.application.csproj", "Services/Ordering/ordering.application/"]
-COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 COPY ["Services/Ordering/ordering.domain/ordering.domain.csproj", "Services/Ordering/ordering.domain/"]
+COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 COPY ["Services/Ordering/ordering.infrastructure/ordering.infrastructure.csproj", "Services/Ordering/ordering.infrastructure/"]
 RUN dotnet restore "Services/Ordering/Ordering.API/Ordering.API.csproj"
 COPY . .

@@ -142,7 +142,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "discount.api",
+          "Host": "ordering.api",
           "Port": "80"
         }
       ],
@@ -150,10 +150,6 @@
       "UpstreamHttpMethod": [ "GET" ]
     }
   ],
-
-
-
-
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5010"
   }
