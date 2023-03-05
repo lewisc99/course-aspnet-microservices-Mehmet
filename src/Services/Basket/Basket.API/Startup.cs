@@ -55,6 +55,8 @@ namespace Basket.API
                 //the server name and the port
                 configuration.Host(Configuration["EventBusSettings:HostAddress"]);
 
+                 
+                 
                 });
             });
 

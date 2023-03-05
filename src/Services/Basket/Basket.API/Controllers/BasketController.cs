@@ -103,7 +103,6 @@ namespace Basket.API.Controllers
             // _eventBus.PublishBasketCheckout
             eventMessage.TotalPrice = basket.TotalPrice;
             await _publishEndpoint.Publish(eventMessage);
-
             //remove the basket
             await _repository.DeleteBasket(basket.UserName);
 
